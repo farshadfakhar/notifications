@@ -1,0 +1,11 @@
+{
+    "name": "grigio/notifications",
+    "description": "Notification handler",
+    "authors": [
+        {
+            "name": "Farshad Fakhar",
+            "email": "farhsadfakhar@gmail.com"
+        }
+    ],
+    "require": {}
+}
