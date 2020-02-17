@@ -10,6 +10,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
+            "Grigio\\Notifications\\": "src/"
         }
       },
       "minimum-stability": "dev",
