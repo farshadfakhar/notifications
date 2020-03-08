@@ -28,5 +28,12 @@ class NotificationServiceProvider extends ServiceProvider
         App::bind('notification', function () {
             return new NotificationFacade;
         });
+
+        $this->publishes([
+            __DIR__.'/config/grigionotification.php' => config_path('grigionotification.php'),
+        ]);
+
+        $this->loadViewsFrom(__DIR__.'/Views', 'grigio');
+
     }
 }

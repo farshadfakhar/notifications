@@ -7,7 +7,18 @@
             "email": "farhsadfakhar@gmail.com"
         }
     ],
-    "require": {},
+    "keywords": [
+      "notification",
+      "sms",
+      "email",
+      "smsir",
+      "sms_ir"
+  ],
+    "require": {
+      "php": ">=5.5",
+      "ext-json": "*",
+      "guzzlehttp/guzzle": "^6.5.2"
+    },
     "autoload": {
         "psr-4": {
             "Grigio\\Notifications\\": "src/"
