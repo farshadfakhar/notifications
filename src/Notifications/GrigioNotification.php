@@ -13,21 +13,27 @@ class GrigioNotification
         $this->data = $data;
     }
 
-    public function setReceiver($reseiver)
+    protected function setReceiver($reseiver)
     {
         $this->receiver = $reseiver;
     }
 
-    public function setMessage($message)
+    protected function setMessage($message)
     {
         $this->message = $message;
     }
 
-    public function setSubject($subject)
+    protected function setSubject($subject)
     {
         $this->subject = $subject;
     }
 
+
+    /**
+     * Prepare data for notification channels
+     * You can add data to this array if you create new channel and need more data
+     * @return Array
+     */
     public function sendPrepration()
     {
         return [
