@@ -7,14 +7,23 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailChannel extends GerigioChannel implements ChannelContract
 {
+    /**
+     * Name of the method for this channel in notification class
+     */
     public $channel = 'viaEmail';
-    public function send($data)
+
+    /**
+     * Channel Send Method
+     * Do process of sending message
+     */
+    public function send()
     {
-        Mail::send('grigio::raw', ['content' => $data['message']], function ($message) use ($data) {
-            $message
+        $message = $this->getMessage();
+        Mail::send('grigio::raw', ['content' => $message['message']], function ($mail) use ($message) {
+            $mail
                 ->from(config('grigionotification.email.from'), config('grigionotification.email.from_name'))
-                ->to($data['receiver'])
-                ->subject($data['subject']);
+                ->to($message['receiver'])
+                ->subject($message['subject']);
         });
     }
 }

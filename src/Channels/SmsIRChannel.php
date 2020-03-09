@@ -7,11 +7,21 @@ use Grigio\Notifications\Service\SmsIRService;
 
 class SmsIRChannel extends GerigioChannel implements ChannelContract
 {
+    /**
+     * Name of the method for this channel in notification class
+     */
     public $channel = 'viaSmsIR';
 
-    public function send($data)
+    /**
+     * Channel Send Method
+     * Do process of sending message
+     */
+    public function send()
     {
+        $message = $this->getMessage();
         $sms = new SmsIRService();
-        $sms->send([$data['message']], [$data['receiver']]);
+        $messageText = $message['message'];
+        $messageTo = $message['receiver'];
+        $sms->send([$messageText], [$messageTo]);
     }
 }
