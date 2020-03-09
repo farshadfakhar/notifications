@@ -1,6 +1,7 @@
 {
     "name": "grigio/notifications",
     "description": "Notification handler",
+    "license": "MIT",
     "authors": [
         {
             "name": "Farshad Fakhar",
