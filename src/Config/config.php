@@ -1,6 +1,15 @@
 <?php
 
 return [
+    /**
+     * Channels
+     * For development check README in https://github.com/mygrigio/notifications
+     */
+    'channels' => [
+        Grigio\Notifications\Channels\SmsIRChannel::class,
+        Grigio\Notifications\Channels\EmailChannel::class,
+    ],
+
     'email' => [
         'from' => env('MAIL_USERNAME'),
         'from_name' => env('APP_NAME')
