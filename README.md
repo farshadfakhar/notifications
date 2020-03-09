@@ -7,6 +7,7 @@ PHP Notification handler
 
 ## Instalation
 - ``` composer require grigio/notifications ```
+- ``` php artisan vendor:publish ``` and choose config
 - Add this environment variables to .env
   ```
     SMSIR_SECRET_KEY=
@@ -53,4 +54,29 @@ PHP Notification handler
  ```
  
  
- ## Channel development will add soon ...
+ ## Channel Development
+ - Create a class like this
+ ```
+ class SmsIRChannel extends GerigioChannel implements ChannelContract
+{
+    /**
+     * Name of the method for this channel in notification class
+     */
+    public $channel = 'fill with notification class method name';
+
+    /**
+     * Channel Send Method
+     * Do process of sending message
+     */
+    public function send()
+    {
+        // You access seted datas in notification class as an array
+        $message = $this->getMessage();
+        // Do the process of sending notification
+    }
+}
+ ```
+ - Register it in config/grigionotification.php
+ - Add channel method to your notification class. Now you have a new channel :)
+
+ # If you like to help us send your new channel as a pull request <3
