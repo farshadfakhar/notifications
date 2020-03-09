@@ -7,13 +7,17 @@ use League\Pipeline\Pipeline;
 
 class Notifications
 {
+    /**
+     * Notify
+     * Registers channels in config
+     * @param Class $notification
+     */
     public function notify($notification)
     {
-        $pipeline = (new Pipeline())
-            ->pipe((new EmailChannel()))
-            ->pipe((new SmsIRChannel()));
-        
+        $pipeline = (new Pipeline());
+        foreach(config('grigionotification.channels') as $channel){
+            $pipeline = $pipeline->pipe(new $channel);
+        }
         $pipeline->process($notification);
-
     }
 }
