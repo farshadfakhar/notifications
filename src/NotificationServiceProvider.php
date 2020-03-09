@@ -29,11 +29,20 @@ class NotificationServiceProvider extends ServiceProvider
             return new NotificationFacade;
         });
 
-        $this->publishes([
-            __DIR__.'/config/grigionotification.php' => config_path('grigionotification.php'),
-        ]);
+        $this->publishConfig();
 
         $this->loadViewsFrom(__DIR__.'/Views', 'grigio');
 
+    }
+
+    private function publishConfig()
+    {
+        $path = $this->getConfigPath();
+        $this->publishes([$path => config_path('grigionotification.php')], 'config');
+    }
+
+    private function getConfigPath()
+    {
+        return __DIR__ . '/config/config.php';
     }
 }
